@@ -1,0 +1,28 @@
+module.exports = {
+  plugins: ['@typescript-eslint', 'react', 'prettier', 'react-hooks'],
+  parser: '@typescript-eslint/parser',
+  extends: [
+    'react-app',
+    'react-app/jest',
+    'prettier',
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    // "plugin:prettier/recommended",
+    'plugin:react/recommended',
+  ],
+  rules: {
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+    'react/no-unescaped-entities': 0,
+    'object-curly-spacing': ['error', 'always'],
+    'eol-last': ['error', 'always'],
+    quotes: ['error', 'single', { avoidEscape: true }],
+    semi: 'off',
+    '@typescript-eslint/semi': ['error'],
+    '@typescript-eslint/member-delimiter-style': 'error',
+    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-tag-spacing': ['error', { beforeSelfClosing: 'always' }],
+    'react/react-in-jsx-scope': 'off',
+    'prettier/prettier': ['error'],
+    'padding-line-between-statements': ['error', { blankLine: 'always', prev: '*', next: 'return' }],
+  },
+};

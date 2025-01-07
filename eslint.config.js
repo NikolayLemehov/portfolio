@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import prettier from 'eslint-plugin-prettier';
+import importPlugin from 'eslint-plugin-import';
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -17,6 +18,7 @@ export default tseslint.config(
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
+      import: importPlugin,
       'prettier': prettier,
     },
     rules: {
@@ -25,6 +27,51 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      "import/order": [
+        "error",
+        {
+          "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "type"],
+          "pathGroups": [
+            {
+              "pattern": "@/**",
+              "group": "internal",
+              "position": "after"
+            },
+            {
+              "pattern": "@common/**",
+              "group": "internal",
+              "position": "after"
+            },
+            {
+              "pattern": "@assets/**",
+              "group": "internal",
+              "position": "after"
+            },
+            {
+              "pattern": "@components/**",
+              "group": "internal",
+              "position": "after"
+            },
+            {
+              "pattern": "@pages/**",
+              "group": "internal",
+              "position": "after"
+            },
+            {
+              "pattern": "/**",
+              "group": "internal",
+              "position": "after"
+            },
+          ],
+          "pathGroupsExcludedImportTypes": [],
+          "newlines-between": "always",
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": false
+          }
+        }
+      ],
+
       'prettier/prettier': 'error',
     },
   },

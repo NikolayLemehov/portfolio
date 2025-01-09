@@ -1,19 +1,22 @@
+import { Header } from "@components";
 import { HomePage, NotFoundPage } from "@pages";
-import "./App.css";
+import { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import reactLogo from "@assets/react.svg";
-// import { HomePage, NotFoundPage } from "@pages/index.ts";
-
 function App() {
-  console.log(reactLogo);
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="flex flex-grow flex-col p-6">
+      <Header />
+      <Suspense fallback={<div>Loading...</div>}>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </BrowserRouter>
+      </Suspense>
+      <div className="mt-auto">footer</div>
+    </div>
   );
 }
 

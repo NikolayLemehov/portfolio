@@ -16,6 +16,9 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
 
     /* Linting */
     "strict": true,
@@ -40,7 +43,21 @@
       "@pages/*": ["./src/pages/*"],
       "@pages": ["./src/pages"],
       "@/*": ["./src/*"]
-    }
+    },
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "camelCase",
+//          "customRenderer": "./myRenderer.js",
+//          "dotenvOptions": {},
+//          "postcssOptions": {},
+//          "rendererOptions": {}
+          "namedExports": true,
+          "noUncheckedIndexedAccess": true
+        }
+      }
+    ]
   },
   "include": ["src"]
 }

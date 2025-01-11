@@ -1,10 +1,12 @@
-import s from "./HomePage.module.scss";
+import s from "./HomePage.module.css";
 
 export const HomePage = () => {
   return (
-    <div className="border-2 border-solid border-cyan-500 p-3">
+    <div className="container mx-auto border-2 border-solid border-cyan-500">
       <h1 className={s.title}>Portfolio</h1>
-      <ul>
+      <ul className="background-cyan-500 flex space-x-2 text-2xl md:space-x-14">
+        <li>Weather</li>
+        <li>Weather</li>
         <li>Weather</li>
       </ul>
     </div>

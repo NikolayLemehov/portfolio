@@ -5,18 +5,18 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="flex flex-grow flex-col p-6">
-      <Header />
-      <Suspense fallback={<div>Loading...</div>}>
-        <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <div className="flex flex-grow flex-col">
+        <Header />
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-        </BrowserRouter>
-      </Suspense>
-      <div className="mt-auto">footer</div>
-    </div>
+        </Suspense>
+        <div className="container mx-auto mt-auto py-4 text-center">Developed by Mykola Liemiekhov</div>
+      </div>
+    </BrowserRouter>
   );
 }
 

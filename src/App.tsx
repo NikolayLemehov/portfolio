@@ -1,4 +1,4 @@
-import { Header } from "@components";
+import { Header, ThemeSwitcher } from "@components";
 import { HomePage, NotFoundPage } from "@pages";
 import { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -8,6 +8,7 @@ function App() {
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="flex flex-grow flex-col">
         <Header />
+        <ThemeSwitcher />
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<HomePage />} />

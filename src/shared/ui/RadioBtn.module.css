@@ -1,0 +1,13 @@
+.btn {
+  padding: .5rem 1rem;
+  border-width: 1px;
+  border-radius: .25rem;
+  border-color: var(--primary-color);
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  text-transform: capitalize;
+}
+
+.btnActive {
+  @apply bg-blue-500 text-white;
+}

@@ -1,18 +1,21 @@
 import { ProjectCard } from "@components";
 
+import { projectList } from "@/shared/data/projectList.ts";
+import { Container } from "@/shared/ui/Container";
+
 import s from "./HomePage.module.css";
 
 export const HomePage = () => {
   return (
-    <div className="container mx-auto border-2 border-solid border-cyan-500">
+    <Container>
       <h1 className={s.title}>Portfolio</h1>
-      <ul className="background-cyan-500 flex space-x-2 text-2xl md:space-x-14">
-        <li>
-          <ProjectCard type="box" />
-        </li>
-        <li>Weather</li>
-        <li>Weather</li>
+      <ul className="flex flex-col gap-5 text-2xl">
+        {projectList.map((p) => (
+          <li key={p.name}>
+            <ProjectCard type={p.type} name={p.name} stack={p.stack} links={p.links} screen={p.screen} ps={p.ps} />
+          </li>
+        ))}
       </ul>
-    </div>
+    </Container>
   );
 };

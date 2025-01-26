@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { RadioBtn } from "@/shared/ui/RadioBtn.tsx";
+import { Container } from "@/shared/ui/Container";
+import { RadioBtn } from "@/shared/ui/RadioBtn";
 
 export type ThemeMode = "light" | "dark" | "system";
 
@@ -20,18 +21,12 @@ export const ThemeSwitcher = () => {
   }, [systemPrefersDark, theme]);
 
   return (
-    <div className="container mx-auto">
+    <Container>
       <div className="flex gap-4">
         {buttons.map((mode) => (
           <RadioBtn key={mode} mode={mode} onClick={() => setTheme(mode)} isActive={theme === mode} />
         ))}
       </div>
-      <div className="bg-light p-4 text-dark dark:bg-dark dark:text-light">
-        <p>
-          Це приклад тексту у світлій темі з світлим фоном (світло-сірий) і темним текстом, та в темній темі з темним
-          фоном (темно-сірий) і світлим текстом.
-        </p>
-      </div>
-    </div>
+    </Container>
   );
 };
